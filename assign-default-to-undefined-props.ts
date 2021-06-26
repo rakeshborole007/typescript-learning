@@ -22,3 +22,18 @@ newVar.p2 = (oldVar?.p2 === undefined) ? null : oldVar.p2;
 
 console.log(`oldVar:${JSON.stringify(oldVar, null, 2)}`);
 console.log(`newVar:${JSON.stringify(newVar, null, 2)}`);
+
+console.log(`newVar:${JSON.stringify(assignTo(oldVar, newVar), null, 2)}`);
+
+function assignTo(oldVar: any, newVar: any, keys?: string[]) {
+    newVar = newVar === undefined ? {} : newVar;
+    if (oldVar) {
+        keys = keys === undefined ? [] : Object.keys(newVar);
+        keys.forEach(
+            k => {
+                newVar[k] = (oldVar[k] === undefined) ? null : oldVar[k];
+            }
+        );
+    }
+    return newVar;
+}
