@@ -1,7 +1,7 @@
 const compose = (...fns:any[]) => (arg: any) =>
   fns.reduceRight((acc, fn) => (fn ? fn(acc) : acc), arg)
 
-const add = (num1: number) => (num2: any) => num1 + num2
+const add = (num1: number) => (num2: number) => num1 + num2
 const multiply = (num1: number) => (num2: number) => num1 * num2
 const subtract = (num1: number) => (num2: number) => num1 - num2
 
